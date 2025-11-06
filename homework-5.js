@@ -8,12 +8,12 @@ checkTemperatureInCity('Париж',6);
 
 const SPEED_OF_SOUND = 343;
 
-const compareToSpeedOfSound = speed => {
+const compareSpeedToSpeedOfSound = speed => {
   let speedCategory = speed > SPEED_OF_SOUND ? 'Сверхзвуковая скорость' : 'Дозвуковая скорость';
   console.log(speedCategory);
 }
 
-compareToSpeedOfSound(343);
+compareSpeedToSpeedOfSound(343);
 
 //5. Функция для покупки товара 
 
