@@ -1,40 +1,47 @@
 // Покраска всех карточек и сброска цвета
 const productCards = document.querySelectorAll('.product-card');
-const changeColorAllButton = document.querySelector('#button-change-color-all-card');
+const changeColorAllButton = document.querySelector('#change-color-all-card');
+const changeAllCardsColor = 'Поменять цвет всех карточек';
+const changeFirstCardColor = 'Поменять цвет первой карточки'
+const resetAllCardsColor = 'Сбросить цвет всех карточек'
+const resetFirstCardColor = 'Сбросить цвет первой карточки'
+const colorChange = 'color-change';
 
-changeColorAllButton.addEventListener('click',() => {
- productCards.forEach((card) => card.classList.toggle('green'));
- if (changeColorAllButton.innerText == 'Поменять цвет всех карточек') {
-    changeColorAllButton.innerText = 'Сбросить цвет всех карточек';
+changeColorAllButton.addEventListener('click', () => {
+ productCards.forEach((card) => card.classList.toggle('bg-green'));
+ if (changeColorAllButton.innerText == changeAllCardsColor) {
+    changeColorAllButton.innerText = resetAllCardsColor;
   } else {
-    changeColorAllButton.innerText = 'Поменять цвет всех карточек';
-    productCards.forEach((card) => card.classList.remove('red','green'))
-    changeColorFirstCardButton.innerText = 'Поменять цвет первой карточки';
+    changeColorAllButton.innerText = changeAllCardsColor;
+    productCards.forEach((card) => card.classList.remove('bg-red','bg-green'))
+    changeColorFirstCardButton.innerText = changeFirstCardColor;
   }
 })
 
 // Покраска первой карточки и сброска цвета
 
 const firstProductCard = document.querySelector('.product-card');
-const changeColorFirstCardButton = document.getElementById('button-change-color-first-card');
+const changeColorFirstCardButton = document.getElementById('change-color-first-card');
 
 changeColorFirstCardButton.addEventListener('click', () => {
-  firstProductCard.classList.toggle('red');
-  if (changeColorFirstCardButton.innerText == 'Поменять цвет первой карточки') {
-    changeColorFirstCardButton.innerText = 'Сбросить цвет первой карточки';
+  firstProductCard.classList.toggle('bg-red');
+  if (firstProductCard.classList.contains(colorChange)) {
+    changeColorFirstCardButton.innerText = changeFirstCardColor;
+    firstProductCard.classList.remove(colorChange);
   } else {
-    changeColorFirstCardButton.innerText = 'Поменять цвет первой карточки';
+    firstProductCard.classList.add(colorChange);
+    changeColorFirstCardButton.innerText = resetFirstCardColor;
   }
 })
 
 // Открыть гугл
+const openGoogleButton = document.querySelector('#open-google');
 
-openGoogle();
+openGoogleButton.addEventListener('click', openGoogle)
 
 function openGoogle() {
   const answer = confirm('Вы действительно хотите открыть Google?');
-
-  if (answer==true){
+  if (answer==true) {
     window.open('https://google.com');
   } else {
     return;
@@ -43,7 +50,7 @@ function openGoogle() {
 
 // Вывод  консоль лог
 
-const outputConsoleLogButton = document.querySelector('#button-output-console-log');
+const outputConsoleLogButton = document.querySelector('#output-console-log');
 
 outputConsoleLogButton.addEventListener('click' , () => outputConsoleLog('ДЗ №4'));
 
@@ -54,21 +61,20 @@ function outputConsoleLog(message) {
 
 // Вывод консоль лог при наведении на главный заголовок
 
-const mainTitle = document.querySelector('.take-product');
+const mainTitle = document.querySelector('.main-title');
 
 mainTitle.addEventListener('mouseover', () => {
-  console.log(mainTitle);
+  console.log(mainTitle.textContent);
 })
 
 // Смена цвета кнопки
 
-const changeColorForButton = document.getElementById('button-change-color-for-button');
+const changeColorForButton = document.getElementById('change-color-for-button');
 
 changeColorForButton.addEventListener('click', () => {
-
-  if (changeColorForButton.classList.contains('blue')){
-    changeColorForButton.classList.toggle('red');
+  if (changeColorForButton.classList.contains('bg-blue')) {
+    changeColorForButton.classList.toggle('bg-red');
   } else {
-    changeColorForButton.classList.toggle('blue');
+    changeColorForButton.classList.toggle('bg-blue');
   }
   })
