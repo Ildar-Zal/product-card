@@ -9,11 +9,13 @@ const colorChange = 'color-change';
 
 changeColorAllButton.addEventListener('click', () => {
  productCards.forEach((card) => card.classList.toggle('bg-green'));
- if (changeColorAllButton.innerText == changeAllCardsColor) {
+ if (productCards[1].classList.contains(colorChange)) {
     changeColorAllButton.innerText = resetAllCardsColor;
+    productCards.forEach((card) => card.classList.remove(colorChange));
   } else {
     changeColorAllButton.innerText = changeAllCardsColor;
     productCards.forEach((card) => card.classList.remove('bg-red','bg-green'))
+    productCards.forEach((card) => card.classList.add(colorChange));
     changeColorFirstCardButton.innerText = changeFirstCardColor;
   }
 })
