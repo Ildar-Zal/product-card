@@ -10,13 +10,13 @@ const colorChange = 'color-change';
 changeColorAllButton.addEventListener('click', () => {
  productCards.forEach((card) => card.classList.toggle('bg-green'));
  if (productCards[1].classList.contains(colorChange)) {
-    changeColorAllButton.innerText = resetAllCardsColor;
-    productCards.forEach((card) => card.classList.remove(colorChange));
-  } else {
     changeColorAllButton.innerText = changeAllCardsColor;
-    productCards.forEach((card) => card.classList.remove('bg-red','bg-green'))
-    productCards.forEach((card) => card.classList.add(colorChange));
     changeColorFirstCardButton.innerText = changeFirstCardColor;
+    productCards.forEach((card) => card.classList.remove(colorChange));
+    productCards.forEach((card) => card.classList.remove('bg-red','bg-green'))
+  } else {
+    productCards.forEach((card) => card.classList.add(colorChange));
+    changeColorAllButton.innerText = resetAllCardsColor;
   }
 })
 
