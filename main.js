@@ -2,21 +2,18 @@
 const productCards = document.querySelectorAll('.product-card');
 const changeColorAllButton = document.querySelector('#change-color-all-card');
 const changeAllCardsColor = 'Поменять цвет всех карточек';
-const changeFirstCardColor = 'Поменять цвет первой карточки'
 const resetAllCardsColor = 'Сбросить цвет всех карточек'
-const resetFirstCardColor = 'Сбросить цвет первой карточки'
 const colorChange = 'color-change';
 
 changeColorAllButton.addEventListener('click', () => {
  productCards.forEach((card) => card.classList.toggle('bg-green'));
+ productCards.forEach((card) => card.classList.toggle(colorChange));
  if (productCards[1].classList.contains(colorChange)) {
+    changeColorAllButton.innerText = resetAllCardsColor;
+  } else {
     changeColorAllButton.innerText = changeAllCardsColor;
     changeColorFirstCardButton.innerText = changeFirstCardColor;
-    productCards.forEach((card) => card.classList.remove(colorChange));
-    productCards.forEach((card) => card.classList.remove('bg-red','bg-green'))
-  } else {
-    productCards.forEach((card) => card.classList.add(colorChange));
-    changeColorAllButton.innerText = resetAllCardsColor;
+    productCards.forEach((card) => card.classList.remove('bg-red','bg-green',colorChangeForFirstCard))
   }
 })
 
@@ -24,15 +21,17 @@ changeColorAllButton.addEventListener('click', () => {
 
 const firstProductCard = document.querySelector('.product-card');
 const changeColorFirstCardButton = document.getElementById('change-color-first-card');
+const resetFirstCardColor = 'Сбросить цвет первой карточки';
+const changeFirstCardColor = 'Поменять цвет первой карточки'
+const colorChangeForFirstCard = 'color-change-first-card';
 
 changeColorFirstCardButton.addEventListener('click', () => {
   firstProductCard.classList.toggle('bg-red');
-  if (firstProductCard.classList.contains(colorChange)) {
-    changeColorFirstCardButton.innerText = changeFirstCardColor;
-    firstProductCard.classList.remove(colorChange);
-  } else {
-    firstProductCard.classList.add(colorChange);
+  firstProductCard.classList.toggle(colorChangeForFirstCard);
+  if (firstProductCard.classList.contains(colorChangeForFirstCard)) {
     changeColorFirstCardButton.innerText = resetFirstCardColor;
+  } else {
+    changeColorFirstCardButton.innerText = changeFirstCardColor;
   }
 })
 
@@ -71,12 +70,12 @@ mainTitle.addEventListener('mouseover', () => {
 
 // Смена цвета кнопки
 
-const changeColorForButton = document.getElementById('change-color-for-button');
+const toggleColorButton = document.getElementById('toggle-color-for-button');
 
-changeColorForButton.addEventListener('click', () => {
-  if (changeColorForButton.classList.contains('bg-blue')) {
-    changeColorForButton.classList.toggle('bg-red');
+toggleColorButton.addEventListener('click', () => {
+  if (toggleColorButton.classList.contains('bg-blue')) {
+    toggleColorButton.classList.toggle('bg-red');
   } else {
-    changeColorForButton.classList.toggle('bg-blue');
+    toggleColorButton.classList.toggle('bg-blue');
   }
   })
