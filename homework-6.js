@@ -81,7 +81,7 @@ console.log(transports);
 
 const createNewPropertyForTransports = (transports) => {
   return transports.map(transport=> {
-    const isOld = transport.releaseYear >2010;
+    const isOld = transport.releaseYear > 2010;
     return {...transport, isOld};
   })
 }
