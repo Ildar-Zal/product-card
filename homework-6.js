@@ -20,8 +20,9 @@ const automobile = {
   releaseYear: 2012,
   color: "white",
   transmission: "automatic",
-  carOwner: {...person}
 }
+
+const carOwner = {...person,...automobile}
 
 //3.Создал функцию, которая проверяет максимальную скорость
 
@@ -29,10 +30,7 @@ const checkMaxSpeed = (object) => {
   if (!object.maxSpeed) {
      object.maxSpeed = 220;
   }
-  return object;
 }
-
-console.log(checkMaxSpeed(automobile));
 
 //4.Создал функцию, которая выводит свойство объекта в консоль
 
@@ -54,10 +52,25 @@ const products = {
 //6.Создал массив из объектов и добавил новый объект в массив
 
 const automobiles = [
-  {brand: "BMW", model: "X5", releaseYear: 2025, horsePower: 330},
-  {brand: "Audi", model: "A6", releaseYear: 2005, horsePower: 220},
-  {brand: "Volkswagen", model: "Passat", releaseYear: 2008, horsePower: 180}
-]
+  {
+    brand: "BMW",
+    model: "X5",
+    releaseYear: 2025,
+    horsePower: 330
+  },
+  {
+    brand: "Audi",
+    model: "A6",
+    releaseYear: 2005,
+    horsePower: 220
+  },
+  {
+    brand: "Volkswagen",
+    model: "Passat",
+    releaseYear: 2008,
+    horsePower: 180
+  }
+];
 
 automobiles.push({
   brand: "Skoda",
@@ -69,20 +82,33 @@ automobiles.push({
 //7.Создал другой массив и объединил
 
 const motorcycles = [
-{brand: "Kawasaki Ninja", model: "H2R", releaseYear: 2018, horsePower: 309},
-{brand: "Honda", model: "CBR1000RR-R Fireblade SP", releaseYear: 2021, horsePower: 211},
-{brand: "Ducati", model: "V4 S", releaseYear: 2024, horsePower: 218},
+  {
+    brand: "Kawasaki Ninja",
+    model: "H2R",
+    releaseYear: 2018,
+    horsePower: 309
+  },
+  {
+    brand: "Honda",
+    model: "CBR1000RR-R Fireblade SP",
+    releaseYear: 2021,
+    horsePower: 211
+  },
+  {
+    brand: "Ducati",
+    model: "V4 S",
+    releaseYear: 2024,
+    horsePower: 218
+  }
 ];
 
 const transports = [...automobiles,...motorcycles];
-console.log(transports);
 
 //8.Создал функцию, которая добавляет новое свойство isOld и в зависимости от даты выпуска проставляет свойству значение
 
-const createNewPropertyForTransports = (transports) => {
-  return transports.map(transport=> {
+const addPropertyToTransports = (transports) => {
+  return transports.map(transport => {
     const isOld = transport.releaseYear > 2010;
     return {...transport, isOld};
   })
 }
- console.log(createNewPropertyForTransports(transports))
