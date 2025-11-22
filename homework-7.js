@@ -50,7 +50,7 @@ const socialCommentEmail = socialComments.reduce((accumulator, currentValue) => 
   return accumulator;
 }, []);
 
-const socialCommentEmail1 = socialComments.map(socialComment => ({email:socialComment.email}))
+const socialCommentEmail1 = socialComments.map(socialComment => {email:socialComment.email})
 
 //9.Привести массив к строке
 
