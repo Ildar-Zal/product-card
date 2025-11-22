@@ -19,11 +19,8 @@ const furnituresRevers = reverseArray(furnitures)
 
 //4.Вывести массив объектов у которых email содержит .com
 
-socialComments.map((socialComment) => {
-  if (socialComment.email.includes('.com')) {
-    console.log(socialComment)
-  }
-})
+const socialCommentSpecificEmail = socialComments.filter(socialComment=> socialComment.email.includes('com'))
+console.log(socialCommentSpecificEmail)
 
 //5.Поменять postId у массивов
 
