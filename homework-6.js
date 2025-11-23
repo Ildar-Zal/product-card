@@ -108,7 +108,5 @@ const transports = [...automobiles,...motorcycles];
 //8.Создал функцию, которая добавляет новое свойство isOld и в зависимости от даты выпуска проставляет свойству значение
 
 const checkTransportIsOld = (transports) => {
-  return transports.map(transport => ({...transport,isOld:transport.releaseYear<2010}))   
+  return transports.map(transport => ({...transport, isOld:transport.releaseYear<2010}))   
   }
-
-console.log(checkTransportIsOld(transports))
