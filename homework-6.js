@@ -22,7 +22,8 @@ const automobile = {
   transmission: "automatic",
 }
 
-const carOwner = {...person,...automobile}
+automobile.carOwner = person
+console.log(automobile)
 
 //3.Создал функцию, которая проверяет максимальную скорость
 
@@ -106,9 +107,8 @@ const transports = [...automobiles,...motorcycles];
 
 //8.Создал функцию, которая добавляет новое свойство isOld и в зависимости от даты выпуска проставляет свойству значение
 
-const addPropertyToTransports = (transports) => {
-  return transports.map(transport => {
-    const isOld = transport.releaseYear > 2010;
-    return {...transport, isOld};
-  })
-}
+const checkTransportIsOld = (transports) => {
+  return transports.map(transport => ({...transport,isOld:transport.releaseYear<2010}))   
+  }
+
+console.log(checkTransportIsOld(transports))
