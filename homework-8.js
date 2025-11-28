@@ -1,4 +1,4 @@
-
+import { productCards } from "./product-cards.js"
 
 let amountProductCards
 
@@ -26,8 +26,9 @@ productCards.forEach((productCard) => {
     newLi.textContent = compound;
     ul.appendChild(newLi)
  })
-  productCardClone.querySelector('.product-price-label').textContent = productCard.price
-  productCardClone.querySelector('.product-price').textContent = '₽'
+
+  productCardClone.querySelector('.product-price-label').textContent = "Цена"
+  productCardClone.querySelector('.product-price').textContent = `${productCard.price} ₽`
 
   if (amount>=counter) {
   productCardList.appendChild(productCardClone)
