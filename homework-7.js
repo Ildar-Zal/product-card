@@ -12,18 +12,18 @@ const currentFurniture = furnitures.find(furniture => furniture === "Стул")
 
 //3.Перевернул массивы
 
-const reverseArray = (array => array.reverse())
+const reverseArray = array => array.reverse()
 
 const numbersRevers = reverseArray(numbers)
 const furnituresRevers = reverseArray(furnitures)
 
 //4.Вывести массив объектов у которых email содержит .com
 
-const socialCommentSpecificEmail = socialComments.filter(socialComment=> socialComment.email.includes('com'))
+const socialCommentSpecificEmail = socialComments.filter(socialComment => socialComment.email.includes('com'))
 
 //5.Поменять postId у массивов
 
-const newSocialComments = socialComments.map((socialComment) => ({...socialComment, postId:(socialComment.id <= 5) ? 2 : 1}))
+const newSocialComments = socialComments.map((socialComment) => ({...socialComment, postId:socialComment.id <= 5 ? 2 : 1}))
 
 //6.Перебрать массив, что бы он состоял только из id и name
 
@@ -40,7 +40,7 @@ const socialCommentEmail = socialComments.reduce((accumulator, currentValue) => 
   return accumulator;
 }, []);
 
-const socialCommentEmail1 = socialComments.map(socialComment => {email:socialComment.email})
+const socialCommentEmail1 = socialComments.map(socialComment => ({email:socialComment.email}))
 
 //9.Привести массив к строке
 

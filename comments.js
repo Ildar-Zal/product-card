@@ -1,4 +1,5 @@
-export const socialComments= [{
+export const socialComments = [
+  {
     postId: 1,
     id: 1,
     name: "id labore ex et quam laborum",
