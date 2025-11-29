@@ -39,7 +39,7 @@ const fillUpProductCards = amountProductCards => {
   const productCardList = document.querySelector('.product-card-list');
   const productCardsSliced = productCards.slice(0, amountProductCards);
 
-  productCardsSliced.forEach((productCard) => {
+  productCardsSliced.forEach(productCard => {
     const productCardClone = productCardTemplate.content.cloneNode(true);
     productCardClone.querySelector('img').src = `images/${productCard.img}.png`;
     productCardClone.querySelector('.product-category').textContent = productCard.category;
