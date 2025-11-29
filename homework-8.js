@@ -17,12 +17,29 @@ productCards.reduce((accum,productCard) => {
 
 //3.Сделать функцию, которая спрашивает сколько вывести карточек и наполняет их свойствами
 
-const fillUpProductCards = (amountProductCards => {
-  let counter = 1;
+const getAmountProductCards = () => {
+  const amountProductCards = prompt("Введите число карточек что бы их вывести (от 1 до 5)");
+
+  if (amountProductCards >= 1 && amountProductCards <=5) {
+    return amountProductCards;
+  } else {
+    return undefined;
+  }
+}
+
+const fillUpProductCards = amountProductCards => {
+
+  if (amountProductCards === undefined)
+  {
+    alert("Вы ввели неверное количество карточек");
+    return;
+  }
+
   const productCardTemplate = document.getElementById('product-card-template');
   const productCardList = document.querySelector('.product-card-list');
+  const productCardsSliced = productCards.slice(0, amountProductCards);
 
-  productCards.forEach((productCard) => {
+  productCardsSliced.forEach((productCard) => {
     const productCardClone = productCardTemplate.content.cloneNode(true);
     productCardClone.querySelector('img').src = `images/${productCard.img}.png`;
     productCardClone.querySelector('.product-category').textContent = productCard.category;
@@ -39,22 +56,13 @@ const fillUpProductCards = (amountProductCards => {
       newLi.textContent = compound;
       ulProductCompound.appendChild(newLi);
     })
-
-    if (amountProductCards>=counter) {
-      productCardList.appendChild(productCardClone);
-      counter = counter+1;
-    }
+    productCardList.appendChild(productCardClone);
   })
-})
+}
 
 const displayProductCards = () => {
-  let amountProductCards;
-
-  while (amountProductCards < 1 || amountProductCards > 5 || amountProductCards === undefined) {
-  amountProductCards = prompt("Введите число карточек что бы их вывести (от 1 до 5)");
-  }
-
+  const amountProductCards = getAmountProductCards();
   fillUpProductCards(amountProductCards);
 }
 
-displayProductCards();
+displayProductCards()
