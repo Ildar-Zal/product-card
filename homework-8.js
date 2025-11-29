@@ -65,4 +65,4 @@ const displayProductCards = () => {
   fillUpProductCards(amountProductCards);
 }
 
-displayProductCards()
+displayProductCards();
