@@ -23,13 +23,13 @@ const getAmountProductCards = () => {
   if (amountProductCards >= 1 && amountProductCards <=5) {
     return amountProductCards;
   } else {
-    return undefined;
+    return;
   }
 }
 
 const fillUpProductCards = amountProductCards => {
 
-  if (amountProductCards === undefined)
+  if (!amountProductCards)
   {
     alert("Вы ввели неверное количество карточек");
     return;
