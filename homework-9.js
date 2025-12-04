@@ -1,6 +1,6 @@
 //1. При нажатии Подписаться выводим объект в консоль
 
-const subscribeForm = document.querySelector('.subscribe-form')
+const subscribeForm = document.querySelector('.subscribe-form');
 
 subscribeForm.addEventListener('submit', (event) => {
   event.preventDefault();

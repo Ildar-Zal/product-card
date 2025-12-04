@@ -108,7 +108,7 @@ body {
 
 #product-cards-footer {
   padding: 1px 0 0 0;
-  background-image: url("images/dark_gray.png");
+  background-color: #3A3A3A;
   height: 477px;
 }
 
@@ -278,7 +278,7 @@ h1 {
   font-weight: 400;
 }
 
-/* #overlay {
+ #overlay {
   position: fixed;
   display: none;
   width: 100%;
@@ -292,4 +292,4 @@ h1 {
 
 #modal[open]~#overlay {
   display: block;
-} */
+} 
