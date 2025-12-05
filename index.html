@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <div class="catalog-product-card">
     <p class="main-title">Выбери свой продукт</p>
@@ -18,7 +19,7 @@
     <button id="output-console-log">Вывести в консоль</button>
     <button id="toggle-color-for-button">Изменить цвет кнопки</button>
     <ul class="product-card-list"></ul>
-    <template id = "product-card-template">
+    <template id="product-card-template">
       <li class="product-card">
         <img src="" alt="" width="290" height="245">
         <span class="product-category"></span>
@@ -33,10 +34,66 @@
       </li>
     </template>
   </div>
+  <form id="registration-form">
+    <h1>Форма регистрации</h1>
+    <hr>
+    <label for="name">Имя:</label>
+    <input placeholder="Введите имя" name="name" required>
+    <label for="surname">Фамилия:</label>
+    <input placeholder="Введите фамилию" name="surname" required>
+    <label for="birthday">Дата рождения:</label>
+    <input type="date" name="birthday" required>
+    <label for="login">Логин:</label>
+    <input placeholder="Введите логин" name="login" required>
+    <label for="password">Пароль:</label>
+    <input type="password" placeholder="Введите пароль" name="password" required>
+    <label for="accept-password">Подтвердить пароль:</label>
+    <input type="password" placeholder="Введите пароль" name="acceptPassword" required>
+    <button class="button-registration-form" id="registration-button" type="submit">Зарегистрироваться</button>
+    <button class="button-registration-form" id="auth-button" type="button">Аутентификация</button>
+  </form>
+  <dialog id=modal>
+    <img id="cross-exit" src="images/cross.svg" alt="" width="21" height="17.61">
+    <form id="modal-form">
+      <input placeholder="Введите логин" name="authLogin" required>
+      <input type="password" placeholder="Введите пароль" name="authPassword" required>
+      <button type="submit">Войти</button>
+    </form>
+  </dialog>
+  <footer id="product-cards-footer">
+    <nav>
+      <ul id="reference-info-container">
+        <li class="information">
+          <span id="information-product-cards-header">Product Cards</span>
+          <p>У Нас Самые Лучшие Продукты Для Кожи!</p>
+          <div>
+            <img class="telegramm" src="images/telegramm_icon.svg" alt="" width="21" height="17.61">
+            <img src="images/vk_icon.svg" alt="" width="24" height="14">
+          </div>
+        </li>
+        <li class="information-subscribe">
+          <p class="subscribe">Подпишись на наши акции:</p>
+          <form class="subscribe-form">
+            <input type="email" placeholder="Введи email..." required name="email">
+            <button type="submit">Подписаться</button>
+          </form>
+        </li>
+        <li class="information">
+          <p id="quick-links">Быстрые ссылки</p>
+          <p>Главная</p>
+          <p>Магазин</p>
+          <p>Контакты</p>
+        </li>
+      </ul>
+    </nav>
+    <p id="copyright">www.product-cards.com @ all right reserve</p>
+  </footer>
+  <div id="overlay"></div>
   <script src="homework-5.js"></script>
+  <script src="homework-6.js"></script>
   <script type="module" src="homework-8.js"></script>
   <script type="module" src="homework-7.js"></script>
+  <script src="homework-9.js"></script>
   <script src="main.js"></script>
-  <script src="homework-6.js"></script>
 </body>
 </html>
