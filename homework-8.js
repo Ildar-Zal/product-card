@@ -60,9 +60,7 @@ const fillUpProductCards = amountProductCards => {
   })
 }
 
-const displayProductCards = () => {
+export const displayProductCards = () => {
   const amountProductCards = getAmountProductCards();
   fillUpProductCards(amountProductCards);
 }
-
-displayProductCards();
