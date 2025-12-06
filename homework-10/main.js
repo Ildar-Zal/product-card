@@ -39,6 +39,8 @@ closeModalButton.addEventListener('click', () => {
   modal.close();
 });
 
+//4. Создал классы питомцев 
+
 const cat = new Cat('Барсик', 'Черный', 5, 100, true);
 const dog = new Dog('Бобик', 'Белый', 10, 200, true);
 
