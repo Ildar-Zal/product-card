@@ -19,9 +19,9 @@ export class Cat extends Pet {
   }
 
   eat() {
-    if (this.health >= 100){
-      console.log(`${this.name} не голоден`)
-      return
+    if (this.health >= 100) {
+      console.log(`${this.name} не голоден`);
+      return;
     }
     super.eat();
     this.friendly = true;
