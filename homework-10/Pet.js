@@ -1,10 +1,10 @@
 export class Pet {
-  constructor(name, color, age, health, friendly) {
+  constructor(name, color, age, health, isFriendly) {
     this.name = name;
     this.color = color;
     this.age = age;
     this.health = health;
-    this.friendly = friendly;
+    this.friendly = isFriendly;
   }
 
   eat() {

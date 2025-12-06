@@ -1,11 +1,11 @@
 import { Pet } from "./Pet.js";
 export class Cat extends Pet {
-  constructor(name, color, age, health, friendly) {
-    super(name, color, age, health, friendly);
+  constructor(name, color, age, health, isFriendly) {
+    super(name, color, age, health, isFriendly);
   }
 
   makeSound() {
-    if (this.friendly) {
+    if (this.isFriendly) {
       console.log(`${this.name}: Мур`);
     }
     else {
@@ -14,7 +14,7 @@ export class Cat extends Pet {
   }
 
   takeDamage() {
-    this.friendly = false;
+    this.isFriendly = false;
     this.health -= 30;
   }
 
@@ -24,7 +24,7 @@ export class Cat extends Pet {
       return;
     }
     super.eat();
-    this.friendly = true;
+    this.isFriendly = true;
     this.health += 30;
     this.makeSound();
   }
