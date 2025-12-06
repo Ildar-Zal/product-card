@@ -5,7 +5,7 @@ export class RegistrationForm extends Form {
   }
 
   createData(event) {
-    super.createData(event)
+    super.createData(event);
     if (this.formValues.password != this.formValues.acceptPassword) {
       alert("Вы ввели несоответствующий пароль");
     }

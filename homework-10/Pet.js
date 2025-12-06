@@ -8,22 +8,22 @@ export class Pet {
   }
 
   eat() {
-    console.log(`${this.name} покушал`)
+    console.log(`${this.name} покушал`);
   }
 
   sleep() {
-    console.log(`${this.name} спит`)
+    console.log(`${this.name} спит`);
   }
 
   makeSound() {
-    console.log('Я не знаю что я за животное, определи меня')
+    console.log('Я не знаю что я за животное, определи меня');
   }
 
   bite(pet) {
-    pet.takeDamage()
+    pet.takeDamage();
   }
 
   takeDamage() {
-    this.health -= 10
+    this.health -= 10;
   }
 }

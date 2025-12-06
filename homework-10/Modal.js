@@ -2,11 +2,11 @@ import { Form } from "./Form.js";
 export class Modal extends Form {
   constructor(id, regForm) {
     super(id);
-    this.form = regForm
+    this.form = regForm;
   }
 
   createData(event) {
-    super.createData(event)
+    super.createData(event);
     const authLogin = this.formValues.authLogin;
     const authPassword = this.formValues.authPassword;
     const regPassword = this.form.getData().password;

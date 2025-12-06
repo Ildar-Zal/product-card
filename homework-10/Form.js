@@ -4,7 +4,7 @@ export class Form {
     this.element.addEventListener('submit', (event) => {
       this.createData(event);
     });
-    this.formValues = null
+    this.formValues = null;
   }
 
   createData(event) {
@@ -23,7 +23,7 @@ export class Form {
   }
 
   resetInput() {
-    this.element.reset()
+    this.element.reset();
   }
 
   checkValidityField(field) {
