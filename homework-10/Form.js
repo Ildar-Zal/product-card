@@ -1,10 +1,15 @@
 export class Form {
   constructor(id) {
+    this.form = null;
+    this.formValues = null;
+    this.initForm(id);
+  }
+
+  initForm(id) {
     this.form = document.querySelector(`#${id}`);
     this.form.addEventListener('submit', (event) => {
       this.createData(event);
     });
-    this.formValues = null;
   }
 
   createData(event) {

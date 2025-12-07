@@ -1,4 +1,4 @@
-import { Form } from "./Form.js";
+import { Form } from "./form.js";
 export class AuthForm extends Form {
   constructor(id, regForm) {
     super(id);

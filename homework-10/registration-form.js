@@ -1,4 +1,4 @@
-import { Form } from "./Form.js";
+import { Form } from "./form.js";
 export class RegistrationForm extends Form {
   constructor(id) {
     super(id);

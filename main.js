@@ -1,8 +1,8 @@
-import { AuthForm } from "./homework-10/AuthForm.js";
-import { Modal } from "./homework-10/Modal.js";
-import { RegistrationForm } from "./homework-10/RegistrationForm.js";
-import { SubscribeForm } from "./homework-10/SubscribeForm.js";
-import { displayProductCards } from "./homework-8.js";
+import { AuthForm } from "./homework-10/auth-form.js";
+import { Modal } from "./homework-10/modal.js";
+import { RegistrationForm } from "./homework-10/registration-form.js";
+import { EmailForm } from "./homework-10/email-form.js";
+import { displayProductCards } from "./homework-8/homework-8.js";
 import { Cat } from "./homework-10/Cat.js";
 import { Dog } from "./homework-10/Dog.js";
 
@@ -10,7 +10,7 @@ displayProductCards();
 
 //1. При нажатии Подписаться выводим объект в консоль
 
-const subscribeForm = new SubscribeForm('subscribe-form');
+const subscribeForm = new EmailForm('subscribe-form');
 
 //2. Реализовал регистрационную форму, при регистрации из формы отправляется объект с данными введенными при регистрации
 
@@ -28,7 +28,7 @@ const authButton = document.querySelector('#auth-button');
 const modal = new Modal('modal');
 
 authButton.addEventListener('click', () => {
-  if (!regForm.getData()) {
+  if (!regForm.getData() || regForm.getData().password != regForm.getData().acceptPassword) {
     alert('Вы не зарегистрировались');
     return;
   }

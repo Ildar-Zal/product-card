@@ -1,5 +1,5 @@
-import { Form } from "./Form.js"
-export class SubscribeForm extends Form {
+import { Form } from "./form.js"
+export class EmailForm extends Form {
   constructor(id) {
     super(id);
   }
