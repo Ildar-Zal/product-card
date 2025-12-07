@@ -1,6 +1,5 @@
 import { Form } from "./Form.js"
 export class SubscribeForm extends Form {
-
   constructor(id) {
     super(id);
   }

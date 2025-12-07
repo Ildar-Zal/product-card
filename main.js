@@ -1,9 +1,10 @@
-import { Modal } from "./Modal.js";
-import { RegistrationForm } from "./RegistrationForm.js";
-import { SubscribeForm } from "./SubscribeForm.js";
-import { displayProductCards } from "../homework-8.js";
-import { Cat } from "./Cat.js";
-import { Dog } from "./Dog.js";
+import { AuthForm } from "./homework-10/AuthForm.js";
+import { Modal } from "./homework-10/Modal.js";
+import { RegistrationForm } from "./homework-10/RegistrationForm.js";
+import { SubscribeForm } from "./homework-10/SubscribeForm.js";
+import { displayProductCards } from "./homework-8.js";
+import { Cat } from "./homework-10/Cat.js";
+import { Dog } from "./homework-10/Dog.js";
 
 displayProductCards();
 
@@ -17,13 +18,14 @@ const regForm = new RegistrationForm('registration-form');
 const resetButton = document.querySelector('#reset-button');
 
 resetButton.addEventListener('click', () => {
-  regForm.resetInput();
+  regForm.resetField('name');
+  console.log(regForm.isValidField('surname'))
 })
 
 //3.Реализовал кнопку аутентификации при её нажатии открывается модальное окно, если пользователь зарегистрирован
 
 const authButton = document.querySelector('#auth-button');
-const modal = new Modal('modal', regForm);
+const modal = new Modal('modal');
 
 authButton.addEventListener('click', () => {
   if (!regForm.getData()) {
@@ -38,6 +40,8 @@ const closeModalButton = document.querySelector('#cross-exit');
 closeModalButton.addEventListener('click', () => {
   modal.close();
 });
+
+const authForm = new AuthForm('auth-form', regForm)
 
 //4. Создал классы питомцев 
 

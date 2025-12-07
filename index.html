@@ -38,7 +38,7 @@
     <h1>Форма регистрации</h1>
     <hr>
     <label for="name">Имя:</label>
-    <input placeholder="Введите имя" name="name" required>
+    <input type="text" placeholder="Введите имя" name="name" required>
     <label for="surname">Фамилия:</label>
     <input placeholder="Введите фамилию" name="surname" required>
     <label for="birthday">Дата рождения:</label>
@@ -55,7 +55,7 @@
   </form>
   <dialog id=modal>
     <img id="cross-exit" src="images/cross.svg" alt="" width="21" height="17.61">
-    <form id="modal-form">
+    <form id="auth-form">
       <input placeholder="Введите логин" name="authLogin" required>
       <input type="password" placeholder="Введите пароль" name="authPassword" required>
       <button type="submit">Войти</button>
@@ -90,6 +90,6 @@
     <p id="copyright">www.product-cards.com @ all right reserve</p>
   </footer>
   <div id="overlay"></div>
-  <script type="module" src="homework-10/main.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>

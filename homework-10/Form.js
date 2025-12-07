@@ -1,7 +1,7 @@
 export class Form {
   constructor(id) {
-    this.element = document.querySelector(`#${id}`);
-    this.element.addEventListener('submit', (event) => {
+    this.form = document.querySelector(`#${id}`);
+    this.form.addEventListener('submit', (event) => {
       this.createData(event);
     });
     this.formValues = null;
@@ -9,25 +9,27 @@ export class Form {
 
   createData(event) {
     event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
-    this.formValues = Object.fromEntries(formData.entries());
+    this.setData(event.target)
   }
 
   getData() {
     return this.formValues;
   }
 
-  checkValidityForm() {
-    return this.element.checkValidity();
+  setData(form) {
+    const formData = new FormData(form);
+    this.formValues = Object.fromEntries(formData.entries());
   }
 
-  resetInput() {
-    this.element.reset();
+  isValidForm() {
+    return this.form.checkValidity();
   }
 
-  checkValidityField(field) {
-    return this.element.elements[`${field}`].checkValidity();
+  resetField(field) {
+    this.form.elements[field].value = '';
   }
 
+  isValidField(field) {
+    return this.form.elements[field].checkValidity();
+  }
 }
