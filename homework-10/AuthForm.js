@@ -1,7 +1,7 @@
 import { Form } from "./Form.js";
 export class AuthForm extends Form {
   constructor(id, regForm) {
-    super(id)
+    super(id);
     this.regForm = regForm;
   }
 

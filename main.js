@@ -19,7 +19,7 @@ const resetButton = document.querySelector('#reset-button');
 
 resetButton.addEventListener('click', () => {
   regForm.resetField('name');
-  console.log(regForm.isValidField('surname'))
+  console.log(regForm.isValidField('surname'));
 })
 
 //3.Реализовал кнопку аутентификации при её нажатии открывается модальное окно, если пользователь зарегистрирован
@@ -41,7 +41,7 @@ closeModalButton.addEventListener('click', () => {
   modal.close();
 });
 
-const authForm = new AuthForm('auth-form', regForm)
+const authForm = new AuthForm('auth-form', regForm);
 
 //4. Создал классы питомцев 
 

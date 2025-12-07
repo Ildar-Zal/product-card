@@ -9,7 +9,7 @@ export class Form {
 
   createData(event) {
     event.preventDefault();
-    this.setData(event.target)
+    this.setData(event.target);
   }
 
   getData() {
