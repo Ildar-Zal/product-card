@@ -3,8 +3,8 @@ import { Modal } from "./homework-10/modal.js";
 import { RegistrationForm } from "./homework-10/registration-form.js";
 import { EmailForm } from "./homework-10/email-form.js";
 import { displayProductCards } from "./homework-8/homework-8.js";
-import { Cat } from "./homework-10/Cat.js";
-import { Dog } from "./homework-10/Dog.js";
+import { Cat } from "./homework-10/cat.js";
+import { Dog } from "./homework-10/dog.js";
 
 displayProductCards();
 
