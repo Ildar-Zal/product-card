@@ -60,5 +60,5 @@ cat.eat();
 console.log(`Здоровье кота: ${cat.health} и Здоровье собаки: ${dog.health}`);
 dog.sleep();
 cat.sleep();
-cat.sleep();
+
 //Исправил название файлов
