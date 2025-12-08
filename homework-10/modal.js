@@ -1,6 +1,6 @@
 export class Modal {
   constructor(id) {
-    this.modal = document.querySelector(`#${id}`);
+    this.modal = document.getElementById(id);
   }
 
   show() {

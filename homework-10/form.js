@@ -6,7 +6,7 @@ export class Form {
   }
 
   initForm(id) {
-    this.form = document.querySelector(`#${id}`);
+    this.form = document.getElementById(id);
     this.form.addEventListener('submit', (event) => {
       this.createData(event);
     });
@@ -17,13 +17,13 @@ export class Form {
     this.setData(event.target);
   }
 
-  getData() {
-    return this.formValues;
-  }
-
   setData(form) {
     const formData = new FormData(form);
     this.formValues = Object.fromEntries(formData.entries());
+  }
+
+  getData() {
+    return this.formValues;
   }
 
   isValidForm() {

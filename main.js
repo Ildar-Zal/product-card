@@ -35,9 +35,13 @@ const modal = new Modal('modal');
 authButton.addEventListener('click', () => {
   if (!regForm.getData() || regForm.getData().password != regForm.getData().acceptPassword) {
     alert('Вы не зарегистрировались');
+    console.log(`Модальное окно закрыто: ${modal.isOpen()}`)
     return;
   }
   modal.show();
+  if (modal.isOpen()) {
+    console.log(`Открыто модальное окно: ${modal.isOpen()}`)
+  }
 });
 
 const closeModalButton = document.querySelector('#cross-exit');
