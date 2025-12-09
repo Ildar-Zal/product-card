@@ -1,81 +1,73 @@
-// Покраска всех карточек и сброска цвета
-const productCards = document.querySelectorAll('.product-card');
-const changeColorAllButton = document.querySelector('#change-color-all-card');
-const changeAllCardsColor = 'Поменять цвет всех карточек';
-const resetAllCardsColor = 'Сбросить цвет всех карточек'
-const colorChange = 'color-change';
+import { AuthForm } from "./homework-10/auth-form.js";
+import { Modal } from "./homework-10/modal.js";
+import { RegistrationForm } from "./homework-10/registration-form.js";
+import { EmailForm } from "./homework-10/email-form.js";
+import { displayProductCards } from "./homeworks/homework-8.js";
+import { Cat } from "./homework-10/cat.js";
+import { Dog } from "./homework-10/dog.js";
+import './homeworks/homework-4.js'
+import './homeworks/homework-5.js'
+import './homeworks/homework-6.js'
+import './homeworks/homework-7.js'
+import './homeworks/homework-8.js'
 
-changeColorAllButton.addEventListener('click', () => {
- productCards.forEach((card) => card.classList.toggle('bg-green'));
- productCards.forEach((card) => card.classList.toggle(colorChange));
- if (productCards[1].classList.contains(colorChange)) {
-    changeColorAllButton.innerText = resetAllCardsColor;
-  } else {
-    changeColorAllButton.innerText = changeAllCardsColor;
-    changeColorFirstCardButton.innerText = changeFirstCardColor;
-    productCards.forEach((card) => card.classList.remove('bg-red','bg-green',colorChangeForFirstCard))
-  }
+displayProductCards();
+
+//1. При нажатии Подписаться выводим объект в консоль
+
+const subscribeForm = new EmailForm('subscribe-form');
+
+//2. Реализовал регистрационную форму, при регистрации из формы отправляется объект с данными введенными при регистрации
+
+const regForm = new RegistrationForm('registration-form');
+const resetButton = document.querySelector('#reset-button');
+
+resetButton.addEventListener('click', () => {
+  regForm.resetField('name');
+  console.log(regForm.isValidField('surname'));
 })
 
-// Покраска первой карточки и сброска цвета
+//3.Реализовал кнопку аутентификации при её нажатии открывается модальное окно, если пользователь зарегистрирован
 
-const firstProductCard = document.querySelector('.product-card');
-const changeColorFirstCardButton = document.getElementById('change-color-first-card');
-const resetFirstCardColor = 'Сбросить цвет первой карточки';
-const changeFirstCardColor = 'Поменять цвет первой карточки'
-const colorChangeForFirstCard = 'color-change-first-card';
+const authButton = document.querySelector('#auth-button');
+const modal = new Modal('modal');
 
-changeColorFirstCardButton.addEventListener('click', () => {
-  firstProductCard.classList.toggle('bg-red');
-  firstProductCard.classList.toggle(colorChangeForFirstCard);
-  if (firstProductCard.classList.contains(colorChangeForFirstCard)) {
-    changeColorFirstCardButton.innerText = resetFirstCardColor;
-  } else {
-    changeColorFirstCardButton.innerText = changeFirstCardColor;
-  }
-})
-
-// Открыть гугл
-const openGoogleButton = document.querySelector('#open-google');
-
-openGoogleButton.addEventListener('click', openGoogle)
-
-function openGoogle() {
-  const answer = confirm('Вы действительно хотите открыть Google?');
-  if (answer==true) {
-    window.open('https://google.com');
-  } else {
+authButton.addEventListener('click', () => {
+  if (!regForm.getData() || regForm.getData().password != regForm.getData().acceptPassword) {
+    alert('Вы не зарегистрировались');
+    console.log(`Модальное окно закрыто: ${modal.isOpen()}`)
     return;
   }
-}
-
-// Вывод  консоль лог
-
-const outputConsoleLogButton = document.querySelector('#output-console-log');
-
-outputConsoleLogButton.addEventListener('click' , () => outputConsoleLog('ДЗ №4'));
-
-function outputConsoleLog(message) {
-  alert(message);
-  console.log(message);
-}
-
-// Вывод консоль лог при наведении на главный заголовок
-
-const mainTitle = document.querySelector('.main-title');
-
-mainTitle.addEventListener('mouseover', () => {
-  console.log(mainTitle.textContent);
-})
-
-// Смена цвета кнопки
-
-const toggleColorButton = document.getElementById('toggle-color-for-button');
-
-toggleColorButton.addEventListener('click', () => {
-  if (toggleColorButton.classList.contains('bg-blue')) {
-    toggleColorButton.classList.toggle('bg-red');
-  } else {
-    toggleColorButton.classList.toggle('bg-blue');
+  modal.show();
+  if (modal.isOpen()) {
+    console.log(`Открыто модальное окно: ${modal.isOpen()}`)
   }
-  })
+});
+
+const closeModalButton = document.querySelector('#cross-exit');
+
+closeModalButton.addEventListener('click', () => {
+  modal.close();
+});
+
+const authForm = new AuthForm('auth-form', regForm);
+
+//4. Создал классы питомцев 
+
+const cat = new Cat('Барсик', 'Черный', 5, 100, true);
+const dog = new Dog('Бобик', 'Белый', 10, 200, true);
+
+console.log(`Здоровье кота: ${cat.health} и Здоровье собаки: ${dog.health}`);
+cat.bite(dog);
+dog.makeSound();
+console.log(`Здоровье кота: ${cat.health} и Здоровье собаки: ${dog.health}`);
+dog.eat();
+dog.bite(cat);
+console.log(`Здоровье кота: ${cat.health} и Здоровье собаки: ${dog.health}`);
+cat.makeSound();
+cat.eat();
+console.log(`Здоровье кота: ${cat.health} и Здоровье собаки: ${dog.health}`);
+dog.sleep();
+cat.sleep();
+
+//Исправил название файлов

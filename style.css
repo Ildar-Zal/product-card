@@ -182,7 +182,7 @@ body {
   margin-right: 30px;
 }
 
-.subscribe-form {
+#subscribe-form {
   margin-top: 13px;
   display: flex;
   border: 1px solid #ccc;
@@ -192,11 +192,11 @@ body {
   background: white;
 }
 
-.subscribe-form input::placeholder {
+#subscribe-form input::placeholder {
   color: #000000BF !important;
 }
 
-.subscribe-form input {
+#subscribe-form input {
   flex: 1;
   padding: 10px 15px;
   border: none;
@@ -207,7 +207,7 @@ body {
   margin: 20px 0;
 }
 
-.subscribe-form button {
+#subscribe-form button {
   padding: 10px 20px;
   background: white;
   color: black;
@@ -230,7 +230,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-#modal-form {
+#auth-form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
