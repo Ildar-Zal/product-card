@@ -6,6 +6,7 @@ export class Drink {
     this.price = price;
     this.#temperature = null;
   }
+  
   presentDrink() {
     this.#makeDrink();
     this.#setTemperature(100);
