@@ -3,8 +3,7 @@ import { Modal } from "./homework-10/modal.js";
 import { RegistrationForm } from "./homework-10/registration-form.js";
 import { EmailForm } from "./homework-10/email-form.js";
 import { displayProductCards } from "./homeworks/homework-8.js";
-import { Cat } from "./homework-10/cat.js";
-import { Dog } from "./homework-10/dog.js";
+
 import './homeworks/homework-4.js'
 import './homeworks/homework-5.js'
 import './homeworks/homework-6.js'
@@ -51,23 +50,3 @@ closeModalButton.addEventListener('click', () => {
 });
 
 const authForm = new AuthForm('auth-form', regForm);
-
-//4. Создал классы питомцев 
-
-const cat = new Cat('Барсик', 'Черный', 5, 100, true);
-const dog = new Dog('Бобик', 'Белый', 10, 200, true);
-
-console.log(`Здоровье кота: ${cat.health} и Здоровье собаки: ${dog.health}`);
-cat.bite(dog);
-dog.makeSound();
-console.log(`Здоровье кота: ${cat.health} и Здоровье собаки: ${dog.health}`);
-dog.eat();
-dog.bite(cat);
-console.log(`Здоровье кота: ${cat.health} и Здоровье собаки: ${dog.health}`);
-cat.makeSound();
-cat.eat();
-console.log(`Здоровье кота: ${cat.health} и Здоровье собаки: ${dog.health}`);
-dog.sleep();
-cat.sleep();
-
-//Исправил название файлов
