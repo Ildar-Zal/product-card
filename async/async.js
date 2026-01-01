@@ -17,7 +17,7 @@ async function getUsers() {
 
 const userCardTemplate = document.querySelector('#user-card-template');
 const userCardList = document.querySelector('.user-card-list');
-function fillOutCards(user) {
+function fillOutCard(user) {
   const userCardClone = userCardTemplate.content.cloneNode(true);
   userCardClone.querySelector('.id').textContent = user.id;
   userCardClone.querySelector('.name').textContent = user.name;
@@ -40,7 +40,7 @@ async function synhronizedLocalStorage() {
   if (!localStorage.getItem('users')) {
     setLocalStorageUsers(await getUsers());
   }
-  getLocalStorageUsers().forEach(user => fillOutCards(user));
+  getLocalStorageUsers().forEach(user => fillOutCard(user));
   load.style.display = 'none';
 }
 
@@ -56,7 +56,7 @@ getUsersButton.addEventListener('click', async () => {
     if (userCards.filter(userCard => userCard.querySelector('.name').textContent === user.name).length > 0) {
       return;
     }
-    fillOutCards(user);
+    fillOutCard(user);
   })
 })
 
