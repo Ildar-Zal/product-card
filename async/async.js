@@ -42,7 +42,7 @@ async function synhronizedLocaStorage() {
 }
 
 const getUsersButton = document.querySelector('#get-users');
-getUsersButton.addEventListener('click', async () => {
+getUsersButton.addEventListener('click', () => {
   try {
     if (!localStorage.getItem('users')) {
       alert('Данные не загрузились в Local storage');
@@ -73,9 +73,6 @@ userCardList.addEventListener('click', event => {
     usersLocalStorage = usersLocalStorage.filter(user => user.name !== name);
     localStorage.setItem('users', JSON.stringify(usersLocalStorage));
     userCard.remove();
-    if (localStorage.getItem('users') === '[]') {
-      localStorage.clear();
-    }
   }
 })
 
