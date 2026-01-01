@@ -27,7 +27,7 @@ function fillOutCards(user) {
   userCardList.appendChild(userCardClone);
 }
 
-async function setLocalStorageUsers(users) {
+function setLocalStorageUsers(users) {
   localStorage.setItem(`users`, JSON.stringify(users));
 }
 
