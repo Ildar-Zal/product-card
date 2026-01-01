@@ -1,0 +1,23 @@
+[
+  {
+    "id": 123,
+    "name": "Vlad",
+    "surname": "Petrov",
+    "email": "123@mail.ru",
+    "age": 20
+  },
+  {
+    "id": 123,
+    "name": "Ildar",
+    "surname": "Petrov",
+    "email": "123@mail.ru",
+    "age": 30
+  },
+  {
+    "id": 123,
+    "name": "Sergey",
+    "surname": "Petrov",
+    "email": "123@mail.ru",
+    "age": 15
+  }
+]
