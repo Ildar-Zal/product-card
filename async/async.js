@@ -12,7 +12,6 @@ async function getUsers() {
   catch (error) {
     alert('Данные не загрузились!!!');
     console.error(error.message);
-    load.style.display = 'none';
   }
 }
 
