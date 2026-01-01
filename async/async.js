@@ -37,7 +37,7 @@ function getLocalStorageUsers() {
 
 const load = document.querySelector('#load');
 async function synhronizedLocalStorage() {
-  if (!localStorage.getItem('users') || localStorage.getItem('users') === '[]') {
+  if (!localStorage.getItem('users')) {
     setLocalStorageUsers(await getUsers());
   }
   getLocalStorageUsers().forEach(user => fillOutCards(user));
@@ -46,7 +46,7 @@ async function synhronizedLocalStorage() {
 
 const getUsersButton = document.querySelector('#get-users');
 getUsersButton.addEventListener('click', async () => {
-  if (getLocalStorageUsers() && getLocalStorageUsers().length === (await getUsers()).length) {
+  if (getLocalStorageUsers().length === (await getUsers()).length) {
     alert('Пользователи уже загружены');
     return;
   }
