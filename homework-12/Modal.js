@@ -6,7 +6,7 @@ export class Modal {
     this.shouldCloseOnOverlay = shouldCloseOnOverlay;
     this.closeButton = this.modal.querySelector('#modal-close-button');
     this.#initOpen(buttonId);
-    this.closeHandler = () => {
+    this.handleClose = () => {
       this.close();
     }
   }
@@ -20,8 +20,8 @@ export class Modal {
   close() {
     this.modal.classList.remove('modal-showed');
     this.overlay.classList.remove('overlay-showed');
-    this.closeButton.removeEventListener('click', this.closeHandler);
-    this.overlay.removeEventListener('click', this.closeHandler);
+    this.closeButton.removeEventListener('click', this.handleClose);
+    this.overlay.removeEventListener('click', this.handleClose);
   }
 
   isOpen() {
@@ -36,9 +36,9 @@ export class Modal {
   }
 
   #initClose(shouldCloseOnOverlay) {
-    this.closeButton.addEventListener('click', this.closeHandler);
+    this.closeButton.addEventListener('click', this.handleClose);
     if (shouldCloseOnOverlay) {
-      this.overlay.addEventListener('click', this.closeHandler);
+      this.overlay.addEventListener('click', this.handleClose);
     }
   }
 }
