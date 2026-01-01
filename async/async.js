@@ -27,34 +27,33 @@ function fillOutCards(user) {
   userCardList.appendChild(userCardClone);
 }
 
-async function setUsersLocalStorage(users) {
+async function setLocalStorageUsers(users) {
   localStorage.setItem(`users`, JSON.stringify(users));
 }
 
-function getUsersLocalStorage() {
+function getLocalStorageUsers() {
   return JSON.parse(localStorage.getItem('users'));
 }
 
 const load = document.querySelector('#load');
-async function synhronizedLocaStorage() {
+async function synhronizedLocalStorage() {
   if (!localStorage.getItem('users') || localStorage.getItem('users') === '[]') {
-    setUsersLocalStorage(await getUsers());
+    setLocalStorageUsers(await getUsers());
   }
-  getUsersLocalStorage().forEach(user => fillOutCards(user));
-  load.style.display = 'none'
+  getLocalStorageUsers().forEach(user => fillOutCards(user));
+  load.style.display = 'none';
 }
 
 const getUsersButton = document.querySelector('#get-users');
 getUsersButton.addEventListener('click', async () => {
-  if (getUsersLocalStorage() && getUsersLocalStorage().length === (await getUsers()).length) {
+  if (getLocalStorageUsers() && getLocalStorageUsers().length === (await getUsers()).length) {
     alert('Пользователи уже загружены');
     return;
   }
   const userCards = Array.from(document.querySelectorAll('.user-card'));
-  setUsersLocalStorage(await getUsers());
-  getUsersLocalStorage().forEach(user => {
+  setLocalStorageUsers(await getUsers());
+  getLocalStorageUsers().forEach(user => {
     if (userCards.filter(userCard => userCard.querySelector('.name').textContent === user.name).length > 0) {
-      console.log(user)
       return;
     }
     fillOutCards(user);
@@ -64,8 +63,8 @@ getUsersButton.addEventListener('click', async () => {
 userCardList.addEventListener('click', event => {
   if (event.target.classList.contains('delete-user')) {
     const userCard = event.target.closest('.user-card');
-    const name = userCard.querySelector('.name').textContent;
-    localStorage.setItem('users', JSON.stringify(getUsersLocalStorage().filter(user => user.name !== name)));
+    const cardUserId = userCard.querySelector('.id').textContent;
+    localStorage.setItem('users', JSON.stringify(getLocalStorageUsers().filter(localStorageUser => localStorageUser.id !== cardUserId)));
     userCard.remove();
   }
 })
@@ -77,4 +76,4 @@ deleteUsersButton.addEventListener('click', () => {
   localStorage.clear();
 })
 
-synhronizedLocaStorage();
+synhronizedLocalStorage();
