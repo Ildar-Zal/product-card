@@ -1,7 +1,7 @@
 
 async function getUsers() {
   try {
-    await new Promise(r => setTimeout(r, 3000));
+    await new Promise(r => setTimeout(r, 1000));
     const response = await fetch('./users.json');
     if (!response.ok) {
       throw new Error(`Данные не загрузились. Код ошибки: ${response.status} ${response.statusText}`);
@@ -15,12 +15,8 @@ async function getUsers() {
   }
 }
 
-const load = document.querySelector('#load');
-const userCardList = document.querySelector('.user-card-list');
 const userCardTemplate = document.querySelector('#user-card-template');
-let usersLocalStorage;
-let usersFetch;
-
+const userCardList = document.querySelector('.user-card-list');
 function fillOutCards(user) {
   const userCardClone = userCardTemplate.content.cloneNode(true);
   userCardClone.querySelector('.id').textContent = user.id;
@@ -31,47 +27,45 @@ function fillOutCards(user) {
   userCardList.appendChild(userCardClone);
 }
 
+async function setUsersLocalStorage(users) {
+  localStorage.setItem(`users`, JSON.stringify(users));
+}
+
+function getUsersLocalStorage() {
+  return JSON.parse(localStorage.getItem('users'));
+}
+
+const load = document.querySelector('#load');
 async function synhronizedLocaStorage() {
-  if (!localStorage.getItem('users')) {
-    usersFetch = await getUsers();
-    localStorage.setItem(`users`, JSON.stringify(usersFetch));
+  if (!localStorage.getItem('users') || localStorage.getItem('users') === '[]') {
+    setUsersLocalStorage(await getUsers());
   }
-  usersLocalStorage = JSON.parse(localStorage.getItem('users'));
-  usersLocalStorage.forEach(user => fillOutCards(user));
-  load.style.display = 'none';
+  getUsersLocalStorage().forEach(user => fillOutCards(user));
+  load.style.display = 'none'
 }
 
 const getUsersButton = document.querySelector('#get-users');
-getUsersButton.addEventListener('click', () => {
-  try {
-    if (!localStorage.getItem('users')) {
-      alert('Данные не загрузились в Local storage');
-      throw new Error('Данные не загрузились в Local storage');
-    }
-    if (usersFetch.length === usersLocalStorage.length) {
-      alert('Пользователи уже загружены');
+getUsersButton.addEventListener('click', async () => {
+  if (getUsersLocalStorage() && getUsersLocalStorage().length === (await getUsers()).length) {
+    alert('Пользователи уже загружены');
+    return;
+  }
+  const userCards = Array.from(document.querySelectorAll('.user-card'));
+  setUsersLocalStorage(await getUsers());
+  getUsersLocalStorage().forEach(user => {
+    if (userCards.filter(userCard => userCard.querySelector('.name').textContent === user.name).length > 0) {
+      console.log(user)
       return;
     }
-    localStorage.setItem(`users`, JSON.stringify(usersFetch));
-    usersLocalStorage = JSON.parse(localStorage.getItem('users'));
-    const userCards = Array.from(document.querySelectorAll('.user-card'));
-    usersLocalStorage.forEach(user => {
-      if (userCards.filter(userCard => userCard.querySelector('.name').textContent === user.name).length > 0) {
-        return;
-      }
-      fillOutCards(user);
-    })
-  } catch (error) {
-    console.error(error.message);
-  }
+    fillOutCards(user);
+  })
 })
 
 userCardList.addEventListener('click', event => {
   if (event.target.classList.contains('delete-user')) {
     const userCard = event.target.closest('.user-card');
     const name = userCard.querySelector('.name').textContent;
-    usersLocalStorage = usersLocalStorage.filter(user => user.name !== name);
-    localStorage.setItem('users', JSON.stringify(usersLocalStorage));
+    localStorage.setItem('users', JSON.stringify(getUsersLocalStorage().filter(user => user.name !== name)));
     userCard.remove();
   }
 })
