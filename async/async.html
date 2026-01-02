@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="load">Данные загружаются...</div>
+  <button  id="get-users">Получить пользователей</button>
+  <button id="delete-all-users">Удалить все карточки пользователей</button>
+  <ul class="user-card-list"></ul>
+  <template id="user-card-template">
+      <li class="user-card">
+        <span class="id"></span>
+        <span class="name"></span>
+        <span class="surname"></span>
+        <span class="email"></span>
+        <span class="age"></span>
+        <button class="delete-user">Удалить карточку</button>
+      </li>
+    </template>
+</body>
+<script type="module" src="async.js"></script>
+</html>
